@@ -1,0 +1,27 @@
+- name: Create setup
+  hosts: localhost
+  become: True
+  gather_facts: false
+  pre_tasks:
+    - name: 'install python'
+      vars:
+        ansible_python_interpretor: /usr/bin/python2
+      raw: sudo yum -y install {{ item }}
+      with_items:
+        - python2
+        - python3
+        - podman 
+        - git
+  tasks:
+    - name: ensure a list of packages are installed
+    shell: yum -y install {{ item }} 
+    with_items: 
+      - firewalld
+      - yum-utils
+      - device-mappers-persistant-data
+      - lvm2
+      - wget
+      - https://dl.fedoraproject.org/pub/elpel/epel-release-latest-8.noarch.rpm
+    - name: make sure service is running
+      
+
