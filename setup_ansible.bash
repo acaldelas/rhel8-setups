@@ -2,6 +2,6 @@
 sudo yum -y update
 sudo yum -y install ansible python2 python27 mlocate
 sudo pip3 install --upgrade pip
-suod pip3 install boto
+sudo pip3 install boto
 sudo pip2 install boto
 sudo updatedb
